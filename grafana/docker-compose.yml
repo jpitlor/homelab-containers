@@ -1,0 +1,12 @@
+version: '3''
+
+services:
+  grafana:
+    image: grafana/grafana-enterprise
+    restart: unless-stopped
+    volumes:
+      - /mnt/homelab/grafana:/var/lib/grafana
+
+networks:
+  homelab:
+    external: true

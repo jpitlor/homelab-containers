@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  plex:
+    image: plexinc/pms-docker:latest
+    restart: unless-stopped
+    ports:
+      - '32400:32400'
+    volumes:
+      - /mnt/homelab/plex/config:/config
+      - /mnt/homelab/plex/data:/data
+      - /mnt/homelab/plex/transcode:/transcode
+
+networks:
+  homelab:
+    external: true

@@ -1,0 +1,16 @@
+version: '3''
+
+services:
+  portainer:
+    image: portainer/portainer-ee:latest
+    restart: unless-stopped
+    volumes:
+      - /mnt/homelab/portainer:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - '8000:8000'
+           - '9443:9443'
+
+networks:
+  homelab:
+    external: true
