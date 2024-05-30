@@ -14,6 +14,14 @@ services:
      - APACHE_PORT=11000
      - APACHE_IP_BINDING=0.0.0.0
      - NEXTCLOUD_MOUNT=/mnt/nas
+    labels:
+      - homepage.group=Media
+      - homepage.name=NextCloud
+      - homepage.icon=nextcloud.png
+      - homepage.href=https://files.pitlor.dev/
+      - homepage.description=File server (like Google Drive)
+      - caddy=files.pitlor.dev
+      - caddy.reverse_proxy={{upstreams}}
 
 networks:
   homelab:

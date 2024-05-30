@@ -10,6 +10,14 @@ services:
       - /mnt/homelab/plex/config:/config
       - /mnt/homelab/plex/data:/data
       - /mnt/homelab/plex/transcode:/transcode
+    labels:
+      - homepage.group=Media
+      - homepage.name=Plex
+      - homepage.icon=plex.png
+      - homepage.href=https://media.pitlor.dev/
+      - homepage.description=Media server (like Netflix)
+      - caddy=media.pitlor.dev
+      - caddy.reverse_proxy={{upstreams}}
 
 networks:
   homelab:

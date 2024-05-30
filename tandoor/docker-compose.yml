@@ -36,6 +36,14 @@ services:
       - nginx_config:/etc/nginx/conf.d:ro
       - staticfiles:/static:ro
       - ./mediafiles:/media:ro
+    labels:
+      - homepage.group=Media
+      - homepage.name=Tandoor
+      - homepage.icon=tandoor.png
+      - homepage.href=https://recipes.pitlor.dev/
+      - homepage.description=Recipe Database
+      - caddy=recipes.pitlor.dev
+      - caddy.reverse_proxy={{upstreams}}
 
 networks:
   homelab:

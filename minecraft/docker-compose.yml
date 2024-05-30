@@ -6,6 +6,8 @@ services:
     restart: unless-stopped
     volumes:
       - /mnt/homelab/minecraft:/data
+    labels:
+      - TODO does caddy to udp forwarding?
 
 networks:
   homelab:

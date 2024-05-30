@@ -1,6 +1,16 @@
-version: '3''
+version: '3'
 
-services: []
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    volumes:
+      - /path/to/config:/app/config
+      - /var/run/docker.sock:/var/run/docker.sock # pass local proxy
+    restart: unless-stopped
+    labels:
+      - caddy=homepage.pitlor.local
+      - caddy.reverse_proxy={{upstreams}}
 
 networks:
   homelab:

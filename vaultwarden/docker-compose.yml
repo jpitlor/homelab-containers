@@ -1,6 +1,15 @@
 version: '3''
 
-services: []
+services:
+  vaultwarden:
+    labels:
+      - homepage.group=Media
+      - homepage.name=Vaultwarden
+      - homepage.icon=vaultwarden.png
+      - homepage.href=https://passwords.pitlor.dev/
+      - homepage.description=Password Manager
+      - caddy=passwords.pitlor.dev
+      - caddy.reverse_proxy={{upstreams}}
 
 networks:
   homelab:

@@ -1,6 +1,15 @@
 version: '3''
 
-services: []
+services:
+  gitea:
+    labels:
+      - homepage.group=Infrastructure
+      - homepage.name=Gitea
+      - homepage.icon=gitea.png
+      - homepage.href=https://code.pitlor.dev/
+      - homepage.description=Centralized Code/CI (Like GitHub)
+      - caddy=code.pitlor.dev
+      - caddy.reverse_proxy={{upstreams}}
 
 networks:
   homelab:

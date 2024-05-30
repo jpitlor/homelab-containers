@@ -1,4 +1,4 @@
-version: '3''
+version: '3'
 
 services:
   portainer:
@@ -9,7 +9,15 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - '8000:8000'
-           - '9443:9443'
+      - '9443:9443'
+    labels:
+      - homepage.group=Infrastructure
+      - homepage.name=Portainer
+      - homepage.icon=portainer.png
+      - homepage.href=https://containers.pitlor.local/
+      - homepage.description=Manage Docker containers
+      - caddy=containers.pitlor.local
+      - caddy.reverse_proxy={{upstreams}}
 
 networks:
   homelab:

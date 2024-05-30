@@ -6,6 +6,14 @@ services:
     restart: unless-stopped
     volumes:
       - /mnt/homelab/grafana:/var/lib/grafana
+    labels:
+      - homepage.group=Infrastructure
+      - homepage.name=Grafana
+      - homepage.icon=grafana.png
+      - homepage.href=https://dashboard.pitlor.local/
+      - homepage.description=Status dashboards
+      - caddy=dashboard.pitlor.local
+      - caddy.reverse_proxy={{upstreams}}
 
 networks:
   homelab:
