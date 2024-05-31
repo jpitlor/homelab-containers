@@ -2,6 +2,10 @@ version: '3''
 
 services:
   vaultwarden:
+    image: vaultwarden/server:latest
+    restart: unless-stopped
+    volumes:
+      - /mnt/homelab/vaultwarden:/data
     labels:
       - homepage.group=Media
       - homepage.name=Vaultwarden
@@ -9,7 +13,9 @@ services:
       - homepage.href=https://passwords.pitlor.dev/
       - homepage.description=Password Manager
       - caddy=passwords.pitlor.dev
-      - caddy.reverse_proxy={{upstreams}}
+      - caddy.reverse_proxy={{upstreams 80}}
+    networks:
+      - homelab
 
 networks:
   homelab:

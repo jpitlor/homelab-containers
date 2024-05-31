@@ -8,6 +8,8 @@ services:
       - /mnt/homelab/minecraft:/data
     labels:
       - TODO does caddy to udp forwarding?
+    networks:
+      - homelab
 
 networks:
   homelab:

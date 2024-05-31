@@ -4,8 +4,6 @@ services:
   plex:
     image: plexinc/pms-docker:latest
     restart: unless-stopped
-    ports:
-      - '32400:32400'
     volumes:
       - /mnt/homelab/plex/config:/config
       - /mnt/homelab/plex/data:/data
@@ -17,7 +15,9 @@ services:
       - homepage.href=https://media.pitlor.dev/
       - homepage.description=Media server (like Netflix)
       - caddy=media.pitlor.dev
-      - caddy.reverse_proxy={{upstreams}}
+      - caddy.reverse_proxy={{upstreams 32400}}
+    networks:
+      - homelab
 
 networks:
   homelab:

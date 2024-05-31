@@ -2,6 +2,15 @@ version: '3''
 
 services:
   gitea:
+    image: gitea/gitea:1.22.0
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+    restart: unless-stopped
+    volumes:
+      - /mnt/homelab/gitea:/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
     labels:
       - homepage.group=Infrastructure
       - homepage.name=Gitea
@@ -9,7 +18,11 @@ services:
       - homepage.href=https://code.pitlor.dev/
       - homepage.description=Centralized Code/CI (Like GitHub)
       - caddy=code.pitlor.dev
-      - caddy.reverse_proxy={{upstreams}}
+      - caddy.reverse_proxy={{upstreams 3000}}
+    networks:
+      - homelab
+
+# TODO expose 22 for SSH access
 
 networks:
   homelab:

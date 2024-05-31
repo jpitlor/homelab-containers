@@ -6,11 +6,13 @@ services:
     container_name: homepage
     volumes:
       - /path/to/config:/app/config
-      - /var/run/docker.sock:/var/run/docker.sock # pass local proxy
+      - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
     labels:
       - caddy=homepage.pitlor.local
       - caddy.reverse_proxy={{upstreams}}
+    networks:
+      - homelab
 
 networks:
   homelab:

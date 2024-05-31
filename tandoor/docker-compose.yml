@@ -25,8 +25,6 @@ services:
   tandoor_nginx:
     image: nginx:mainline-alpine
     restart: unless-stopped
-    ports:
-      - 8083:80
     env_file:
       - ./.env
     depends_on:
@@ -43,7 +41,9 @@ services:
       - homepage.href=https://recipes.pitlor.dev/
       - homepage.description=Recipe Database
       - caddy=recipes.pitlor.dev
-      - caddy.reverse_proxy={{upstreams}}
+      - caddy.reverse_proxy={{upstreams 80}}
+    networks:
+      - homelab
 
 networks:
   homelab:

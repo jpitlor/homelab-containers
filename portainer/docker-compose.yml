@@ -7,9 +7,6 @@ services:
     volumes:
       - /mnt/homelab/portainer:/data
       - /var/run/docker.sock:/var/run/docker.sock
-    ports:
-      - '8000:8000'
-      - '9443:9443'
     labels:
       - homepage.group=Infrastructure
       - homepage.name=Portainer
@@ -17,7 +14,9 @@ services:
       - homepage.href=https://containers.pitlor.local/
       - homepage.description=Manage Docker containers
       - caddy=containers.pitlor.local
-      - caddy.reverse_proxy={{upstreams}}
+      - caddy.reverse_proxy={{upstreams 9443}}
+    networks:
+      - homelab
 
 networks:
   homelab:
