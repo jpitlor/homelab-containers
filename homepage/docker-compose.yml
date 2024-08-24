@@ -5,7 +5,7 @@ services:
     image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage
     volumes:
-      - /path/to/config:/app/config
+      - /mnt/homelab/homepage/homepage/config:/app/config
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
     labels:

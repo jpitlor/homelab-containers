@@ -1,7 +1,7 @@
 version: '3''
 
 services:
-  caddy:
+  l5_proxy:
     image: lucaslorentz/caddy-docker-proxy:ci-alpine
     ports:
       - 80:80
@@ -12,10 +12,11 @@ services:
       - homelab
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - caddy_data:/data
+      - /mnt/homelab/caddy/l5_proxy/data:/data
     restart: unless-stopped
-
-env
+  l4_proxy:
+    image: lucaslorentz/caddy-docker-proxy:ci-alpine
+    restart: unless-stopped
 
 networks:
   homelab:
