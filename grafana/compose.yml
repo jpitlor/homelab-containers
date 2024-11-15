@@ -3,7 +3,7 @@ services:
     image: grafana/grafana-enterprise
     restart: unless-stopped
     volumes:
-      - /mnt/nas/homelab/grafana:/var/lib/grafana
+      - /mnt/nas/homelab/grafana/grafana/data:/var/lib/grafana
     labels:
       - homepage.group=Infrastructure
       - homepage.name=Grafana

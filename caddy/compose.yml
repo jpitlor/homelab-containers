@@ -1,5 +1,5 @@
 services:
-  caddy:
+  l5_proxy:
     image: lucaslorentz/caddy-docker-proxy:ci-alpine
     ports:
       - 80:80
@@ -10,7 +10,10 @@ services:
       - homelab
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /mnt/nas/homelab/caddy/data:/data
+      - /mnt/nas/homelab/caddy/l5_proxy/data:/data
+    restart: unless-stopped
+  l4_proxy:
+    image: lucaslorentz/caddy-docker-proxy:ci-alpine
     restart: unless-stopped
 
 networks:

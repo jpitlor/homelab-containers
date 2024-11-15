@@ -3,7 +3,7 @@ services:
     image: itzg/minecraft-server:latest
     restart: unless-stopped
     volumes:
-      - /mnt/nas/homelab/minecraft:/data
+      - /mnt/nas/homelab/minecraft/minecraft/data:/data
     labels:
       - TODO does caddy to udp forwarding?
     networks:

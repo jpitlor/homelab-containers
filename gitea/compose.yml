@@ -6,7 +6,7 @@ services:
       - USER_GID=1000
     restart: unless-stopped
     volumes:
-      - /mnt/nas/homelab/gitea/data:/data
+      - /mnt/nas/homelab/gitea/gitea/data:/data
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     labels:
