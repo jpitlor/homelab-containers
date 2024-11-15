@@ -1,13 +1,11 @@
-version: '3'
-
 services:
   plex:
     image: plexinc/pms-docker:latest
     restart: unless-stopped
     volumes:
-      - /mnt/homelab/plex/config:/config
-      - /mnt/homelab/plex/data:/data
-      - /mnt/homelab/plex/transcode:/transcode
+      - /mnt/nas/homelab/plex/config:/config
+      - /mnt/nas/homelab/plex/data:/data
+      - /mnt/nas/homelab/plex/transcode:/transcode
     labels:
       - homepage.group=Media
       - homepage.name=Plex

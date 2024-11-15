@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   tandoor_db:
     restart: unless-stopped

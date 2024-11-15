@@ -1,11 +1,9 @@
-version: '3''
-
 services:
   vaultwarden:
     image: vaultwarden/server:latest
     restart: unless-stopped
     volumes:
-      - /mnt/homelab/vaultwarden:/data
+      - /mnt/nas/homelab/vaultwarden:/data
     labels:
       - homepage.group=Media
       - homepage.name=Vaultwarden

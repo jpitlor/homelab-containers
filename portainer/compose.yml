@@ -1,11 +1,9 @@
-version: '3'
-
 services:
   portainer:
     image: portainer/portainer-ee:latest
     restart: unless-stopped
     volumes:
-      - /mnt/homelab/portainer:/data
+      - /mnt/nas/homelab/portainer:/data
       - /var/run/docker.sock:/var/run/docker.sock
     labels:
       - homepage.group=Infrastructure
